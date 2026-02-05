@@ -1,0 +1,32 @@
+"per_vrtype_2013"
+"REGL" = تصويت عام
+"ABSS" = مهجر
+"SV14" = تصويت خاص
+
+التصويت الخاص يعني ان عمل الشخص لا يسمح له بالتصويت مع الناس مثل رجال الامن وغيرهم
+
+
+
+-------normalization-----------
+per_first per_father per_grand
+remove spaces = done
+ ة with ه done in the database
+ أ with ا done in the database
+ آ with ا done in the database
+ إ with ا done in the database
+ ئ with ي done in the database
+ ؤ with و done in the database
+ ظ with ض done in the database
+زينعابدين with زينالعابدين done in the database
+زينلعابدين with زينالعابدين done in the database
+ عبدالرحمان with عبدالرحمن done in the database
+
+UPDATE Person SET 
+  PER_FIRST = REPLACE(PER_FIRST, 'زينعابدين', 'زينالعابدين'),
+  PER_FATHER = REPLACE(PER_FATHER, 'زينعابدين', 'زينالعابدين'),
+  PER_GRAND = REPLACE(PER_GRAND, 'زينعابدين', 'زينالعابدين');
+
+UPDATE Person SET 
+  PER_FIRST = REPLACE(PER_FIRST, 'زينلعابدين', 'زينالعابدين'),
+  PER_FATHER = REPLACE(PER_FATHER, 'زينلعابدين', 'زينالعابدين'),
+  PER_GRAND = REPLACE(PER_GRAND, 'زينلعابدين', 'زينالعابدين');
